@@ -3,6 +3,8 @@
   "repo": "pazguille/editable",
   "description": "Simple and tiny Edit in place component",
   "version": "0.0.1",
+  "author": "Guille Paz <guille87paz@gmail.com>",
+  "twitter": "@pazguille",
   "keywords": [
     "edit",
     "in place",
