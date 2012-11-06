@@ -25,7 +25,7 @@ Editable.prototype.init = function ($el, options) {
 
 	that.$el = $el;
 	that.el = $el[0];
-	that.title = options.title || 'Click to edit';
+	that.title = options.title || options || 'Click to edit.';
 	that.content = that.el.innerHTML;
 
 	that.el.setAttribute('contentEditable', true);
