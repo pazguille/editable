@@ -1,0 +1,24 @@
+{
+  "name": "editable",
+  "repo": "pazguille/editable",
+  "description": "Simple and tiny Edit in place component",
+  "version": "0.0.1",
+  "keywords": [
+    "edit",
+    "in place",
+    "editor",
+    "contentEditable"
+  ],
+  "dependencies": {
+    "component/emitter": "*",
+    "component/jquery": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ],
+  "styles": [
+    "editable.css"
+  ]
+}

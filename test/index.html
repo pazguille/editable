@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Editable Component</title>
+		<link href="../build/build.css" rel="stylesheet">
+	</head>
+	<body>
+		<div id="example">Everything contained within this div is editable.</div>
+		<div id="example-jquery">Everything contained within this div is editable.</div>
+
+		<script src="../build/build.js"></script>
+		<script>
+			var $ = require('component-jquery'),
+				Editable = require('editable'),
+				edit = new Editable($('#example'));
+
+				edit.on('done', function (data) {
+					alert('New content: ' + data);
+				});
+
+				edit.on('cancel', function (data) {
+					alert('Cancel!');
+				})
+
+				/**
+				 * jQuery Plugin
+				 */
+				$.fn.editable = function (options) {
+					var widgets = [],
+						editable;
+
+					$.each(this, function (i, e) {
+						editable = new Editable($(e), options);
+						$(e).data('editable', editable);
+						widgets.push(editable);
+					});
+
+					return (widgets.length > 1) ? widgets : widgets[0];
+				};
+
+				$('#example-jquery').editable();
+		</script>
+	</body>
+</html>
