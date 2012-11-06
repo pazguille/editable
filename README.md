@@ -24,20 +24,18 @@
 ### JavaScript
 ```javascript
 // Creates a new editable component
-// $edit is a query selector {jQuery Object}
-var $edit = $('#example').editable({
-    'title': 'Please, edit this text.'
-});
+var Editable = require('editable');
+var edit = new Editable($('#example'), 'Please, edit it!');
 
 // Binds events
-$edit.on('done', function (event, data) {
+edit.on('done', function (event, data) {
 	// Some code here!
 	// For example, you can send data to the server by ajax,
 	// or save into localStorage.
 	// Parameter 'data' is the current content.
 });
 
-$edit.on('cancel', function (event, data) {
+edit.on('cancel', function (event, data) {
 	// Some code here!
 });
 ```
