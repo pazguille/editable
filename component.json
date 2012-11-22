@@ -2,7 +2,7 @@
   "name": "editable",
   "repo": "pazguille/editable",
   "description": "Simple and tiny Edit in place component",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Guille Paz <guille87paz@gmail.com>",
   "twitter": "@pazguille",
   "keywords": [
@@ -12,8 +12,7 @@
     "contentEditable"
   ],
   "dependencies": {
-    "component/emitter": "*",
-    "component/jquery": "*"
+    "component/emitter": "*"
   },
   "development": {},
   "license": "MIT",

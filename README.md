@@ -25,7 +25,8 @@
 ```javascript
 // Creates a new editable component
 var Editable = require('editable');
-var edit = new Editable($('#example'), 'Please, edit it!');
+var element = document.getElementById('example');
+var edit = new Editable(element, 'Please, edit it!');
 
 // Binds events
 edit.on('done', function (event, data) {

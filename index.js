@@ -1,8 +1,7 @@
 /**
  * Module dependencies.
  */
-var Emitter = require('emitter'),
-	$ = require('jquery');
+var Emitter = require('emitter');
 
 /**
  * Expose Editable
@@ -12,45 +11,62 @@ exports = module.exports = Editable;
 /**
  * Editable
  */
-function Editable($el, options) {
-	options = options || {};
-
-	this.init($el, options);
+function Editable(el, title) {
+	this.init(el, title);
 }
 
 Emitter(Editable.prototype);
 
-Editable.prototype.init = function ($el, options) {
+Editable.prototype.init = function (el, title) {
 	var that = this;
 
-	that.$el = $el;
-	that.el = $el[0];
-	that.title = options.title || options || 'Click to edit.';
+	that.el = el;
+	that.title = title || 'Click to edit.';
 	that.content = that.el.innerHTML;
 
 	that.el.setAttribute('contentEditable', true);
 	that.el.setAttribute('title', that.title);
 
-	that.$el.on('keydown.editable', function (event) {
+	// W3C
+	if (that.el.addEventListener) {
+		that.el.addEventListener('keydown', function () {
+			that.onKeydown(event);
+		}, false);
+		that.el.addEventListener('blur', function () {
+			that.onBlur();
+		}, false);
 
-		var esc = (event.which === 27),
-			enter = (event.which === 13);
-
-		if (esc) {
-			that.el.innerHTML = that.content;
-			that.el.blur();
-			that.emit('cancel', that.content);
-
-		} else if (enter) {
-			that.el.blur();
-		}
-
-	});
-
-	that.$el.on('blur.editable', function () {
-		if (that.content !== that.el.innerHTML) {
-			that.content = that.el.innerHTML;
-			that.emit('done', that.content);
-		}
-	});
+	// IE
+	} else if (that.el.attachEvent)  {
+		that.el.attachEvent('onkeydown', function (event) {
+			that.onKeydown(event)
+		});
+		that.el.attachEvent('onblur', function () {
+			that.onBlur();
+		});
+	}
 }
+
+Editable.prototype.onKeydown = function (event) {
+	var esc = (event.which === 27),
+		enter = (event.which === 13);
+
+	if (esc) {
+		this.el.innerHTML = this.content;
+		this.el.blur();
+		this.emit('cancel', this.content);
+
+	} else if (enter) {
+		this.el.blur();
+	}
+}
+
+Editable.prototype.onBlur = function () {
+	if (this.content !== this.el.innerHTML) {
+		this.content = this.el.innerHTML;
+		this.emit('done', this.content);
+	}
+}
+
+
+Editable.prototype.destroy = function () {}
