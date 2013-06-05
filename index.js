@@ -12,6 +12,7 @@ exports = module.exports = Editable;
  * Editable
  */
 function Editable(el, title) {
+    if (!(this instanceof Editable)) return new Editable(el, title);
     this.init(el, title);
 }
 
