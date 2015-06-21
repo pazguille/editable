@@ -1,9 +1,9 @@
 {
   "name": "editable",
   "repo": "pazguille/editable",
-  "description": "Simple and tiny Edit in place component",
-  "version": "0.1.0",
-  "author": "Guille Paz <guille87paz@gmail.com>",
+  "description": "Simple and tiny Edit in place component.",
+  "version": "0.0.1",
+  "author": "Guille Paz <guille87paz@gmail.com> (http://pazguille.me/)",
   "twitter": "@pazguille",
   "keywords": [
     "edit",
@@ -12,7 +12,7 @@
     "contentEditable"
   ],
   "dependencies": {
-    "component/emitter": "*"
+    "pazguille/jvent": "*"
   },
   "development": {},
   "license": "MIT",
@@ -20,6 +20,6 @@
     "index.js"
   ],
   "styles": [
-    "editable.css"
+    "index.css"
   ]
 }
