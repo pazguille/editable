@@ -1,0 +1,33 @@
+{
+  "name": "editable",
+  "repository": "https://github.com/pazguille/editable",
+  "description": "Simple and tiny Edit in place component",
+  "author": "Guille Paz <guille87paz@gmail.com> (http://pazguille.me/)",
+  "dependencies": {
+    "jvent": "*"
+  },
+  "ignore": [
+    ".*",
+    "package.json",
+    "component.json",
+    "node_modules",
+    "browserify.js",
+    "**/.*",
+    "bower_components",
+    "test"
+  ],
+  "homepage": "https://github.com/pazguille/editable",
+  "moduleType": [
+    "adecouplemd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "edit",
+    "in place",
+    "editor",
+    "contentEditable"
+  ],
+  "main": "dist/editable.js",
+  "license": "MIT"
+}
