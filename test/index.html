@@ -1,46 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Editable Component</title>
-		<link href="../build/build.css" rel="stylesheet">
-	</head>
-	<body>
-		<div id="example">Everything contained within this div is editable.</div>
-		<div id="example-jquery">Everything contained within this div is editable.</div>
-
-		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="../build/build.js"></script>
-		<script>
-			var Editable = require('editable'),
-				element = document.getElementById('example');
-				edit = new Editable(element);
-
-				edit.on('done', function (data) {
-					alert('New content: ' + data);
-				});
-
-				edit.on('cancel', function (data) {
-					alert('Cancel!');
-				});
-
-				/**
-				 * jQuery Plugin
-				 */
-				$.fn.editable = function (title) {
-					var widgets = [],
-						editable;
-
-					$.each(this, function (i, e) {
-						editable = new Editable(e, title);
-						$(e).data('editable', editable);
-						widgets.push(editable);
-					});
-
-					return (widgets.length > 1) ? widgets : widgets[0];
-				};
-
-				$('#example-jquery').editable();
-		</script>
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>Editable Component</title>
+    <link href="../index.css" rel="stylesheet">
+  </head>
+  <body>
+    <div id="example">Everything contained within this div is editable.</div>
+    <script src="../dist/editable.js"></script>
+    <script>
+      var edit = Editable(document.querySelector('#example'), 'Edit!');
+      edit
+        .on('cancel', function(content) {
+          console.log(content);
+        })
+        .on('done', function(content) {
+          console.log(content);
+        });
+    </script>
+  </body>
 </html>
