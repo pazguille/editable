@@ -1,0 +1,40 @@
+{
+  "name": "editable",
+  "version": "0.0.1",
+  "description": "Simple and tiny Edit in place component.",
+  "main": "index.js",
+  "dependencies": {
+    "jvent": "*"
+  },
+  "devDependencies": {
+    "better-assert": "1.0.1",
+    "browserify": "7.0.3",
+    "jsdom": "3.1.1",
+    "mocha": "2.1.0",
+    "uglify-js": "2.4.15",
+    "jshint": "2.6.3"
+  },
+  "scripts": {
+    "build": "node browserify.js",
+    "test": "npm run build && _mocha",
+    "dist": "node browserify.js && uglifyjs ./dist/editable.js -m -o ./dist/editable.min.js",
+    "hint": "jshint index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pazguille/editable.git"
+  },
+  "keywords": [
+    "edit",
+    "in",
+    "place",
+    "editor",
+    "contentEditable"
+  ],
+  "author": "Guille Paz <guille87paz@gmail.com> (http://pazguille.me/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pazguille/editable/issues"
+  },
+  "homepage": "https://github.com/pazguille/editable"
+}
