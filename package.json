@@ -7,12 +7,12 @@
     "jvent": "*"
   },
   "devDependencies": {
-    "better-assert": "1.0.1",
-    "browserify": "7.0.3",
-    "jsdom": "3.1.1",
-    "mocha": "2.1.0",
-    "uglify-js": "2.4.15",
-    "jshint": "2.6.3"
+    "better-assert": "1.0.2",
+    "browserify": "13.1.1",
+    "jsdom": "9.8.3",
+    "mocha": "3.2.0",
+    "uglify-js": "2.7.5",
+    "jshint": "2.9.4"
   },
   "scripts": {
     "build": "node browserify.js",
